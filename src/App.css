@@ -8,11 +8,21 @@
   src: url(./fonts/OpenSans-SemiBold.ttf);
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+
 .logo-text {
   width: 80px;
   float: left;
   color: white;
-  margin-left: 2.1em;
+  margin-left: 3em;
   padding-top: 0.5em;
 }
 
@@ -26,26 +36,39 @@ html {
   position: fixed;
   padding-top: 2.7em;
   right: 100;
-  display: inline;
-  text-align: right;
-  overflow: hidden;
+  display: inline-block;
+  overflow: auto;
   mix-blend-mode: exclusion;
 }
 
-.nav-links a {
-  display: inline;
-
-  padding: 1.4em;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: 14px;
-  font-family: "Open Sans", sans-serif;
-
-  font-weight: 600;
+.nav-links {
+  text-align: center;
 }
 
-.nav-links a:last-child {
-  padding-right: 3.6em;
+.nav-links a {
+  display: inline-block;
+  margin: 2em;
+  margin-top: 0;
+
+  margin-bottom: 0;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-socials {
+  float: right;
+  width: px;
+  color: white;
+  margin-right: 3em;
+}
+
+.socialIcon {
+  font-size: 1.2em;
+  margin-left: 1em;
 }
 
 .page1,
@@ -85,8 +108,8 @@ a {
 .home-heading {
   max-width: 1500px;
   color: #f3f3f3;
-  padding-top: 7.3em;
-  padding-left: 2.8em;
+  padding-top: 8em;
+  padding-left: 3em;
   padding-right: 2.8em;
   height: 100px;
 }
@@ -116,8 +139,8 @@ a {
   right: 0;
   bottom: 0;
   position: fixed;
-  padding-bottom: 3em;
-  padding-right: 2.2em;
+  margin-bottom: 2.5em;
+  margin-right: 3em;
   mix-blend-mode: exclusion;
 }
 
@@ -133,6 +156,23 @@ a {
   border-radius: 13px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+}
+
+.work-section {
+  margin-top: 6em;
+  margin-left: 3em;
+  margin-right: 3em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.work-section p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 1em;
+  color: rgb(100, 100, 100);
 }
 
 .emailBtn {
@@ -155,9 +195,41 @@ a {
   background-color: #8222fd;
 }
 
+.sticky-footer {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  color: white;
+  mix-blend-mode: exclusion;
+  padding-bottom: 2em;
+}
+
+.sticky-footer h2 {
+  padding-left: 3.5em;
+  display: inline-block;
+  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.sticky-footer .footer1 div {
+  top: 0px;
+}
+
+.sticky-footer .footer2 div {
+  width: 150px;
+}
+
+.sticky-footer .footer3 div {
+  width: 150px;
+}
+
 .aboutSection {
-  padding-top: 7.89em;
-  padding-left: 2.8em;
+  padding-top: 9em;
+  padding-left: 3em;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -220,12 +292,14 @@ a {
   color: white;
 }
 
-#skills h1 {
-  padding-top: 2em;
+.skills-section {
+  margin-top: 5.5em;
+  padding-left: 3em;
+  padding-bottom: 2em;
 }
 
-.skills-section {
-  padding-left: 4em;
+.skills-section h1 {
+  font-size: 27px;
 }
 
 .skills-subheading {
@@ -233,7 +307,7 @@ a {
 }
 
 .skill {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .appIcon {
@@ -241,15 +315,15 @@ a {
   border-radius: 18px;
   width: 60px;
   height: 60px;
-  align-items: center;
 }
 
-.skills .skill-app {
-  display: inline-block;
-
+.skill-app {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  justify-items: center;
 }
 
 .skills {
@@ -257,6 +331,7 @@ a {
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: -20px;
+  /* justify-content: space-between; */
 }
 
 .icon {
@@ -277,10 +352,133 @@ a {
 }
 
 .darticon {
-  width: 60px;
-  height: 60px;
   background-image: url("images/AppIcons/dart.jpg");
-  object-fit: cover;
+  background-size: 60px 60px;
+}
+
+.htmlicon {
+  background-image: url("images/AppIcons/html.jpg");
+  background-size: 60px 60px;
+}
+
+.javaicon {
+  background-image: url("images/AppIcons/java.jpg");
+  background-size: 60px 60px;
+}
+
+.ricon {
+  background-image: url("images/AppIcons/r.jpg");
+  background-size: 60px 60px;
+}
+
+.pythonicon {
+  background-image: url("images/AppIcons/python.jpg");
+  background-size: 60px 60px;
+}
+
+.cssicon {
+  background-image: url("images/AppIcons/css.jpg");
+  background-size: 60px 60px;
+}
+
+.sqlicon {
+  background-image: url("images/AppIcons/SQL.jpg");
+  background-size: 60px 60px;
+}
+
+.jsicon {
+  background-image: url("images/AppIcons/javascript.jpg");
+  background-size: 60px 60px;
+}
+
+.tsicon {
+  background-image: url("images/AppIcons/typescript.jpg");
+  background-size: 60px 60px;
+}
+
+.nosqlicon {
+  background-image: url("images/AppIcons/nosql.jpg");
+  background-size: 60px 60px;
+}
+
+.angularicon {
+  background-image: url("images/AppIcons/angular.jpg");
+  background-size: 60px 60px;
+}
+
+.spingicon {
+  background-image: url("images/AppIcons/springboot.jpg");
+  background-size: 60px 60px;
+}
+
+.reacticon {
+  background-image: url("images/AppIcons/react.jpg");
+  background-size: 60px 60px;
+}
+
+.mongoicon {
+  background-image: url("images/AppIcons/mongo.jpg");
+  background-size: 60px 60px;
+}
+
+.mysqlicon {
+  background-image: url("images/AppIcons/mysql.jpg");
+  background-size: 60px 60px;
+}
+
+.jqueryicon {
+  background-image: url("images/AppIcons/jquery.jpg");
+  background-size: 60px 60px;
+}
+
+.fluttericon {
+  background-image: url("images/AppIcons/flutter.jpg");
+  background-size: 60px 60px;
+}
+
+.javafxicon {
+  background-image: url("images/AppIcons/java.jpg");
+  background-size: 60px 60px;
+}
+
+.psicon {
+  background-image: url("images/AppIcons/ps.jpg");
+  background-size: 60px 60px;
+}
+
+.aiicon {
+  background-image: url("images/AppIcons/ai.jpg");
+  background-size: 60px 60px;
+}
+
+.xdicon {
+  background-image: url("images/AppIcons/xd.jpg");
+  background-size: 60px 60px;
+}
+
+.figmaicon {
+  background-image: url("images/AppIcons/figma.jpg");
+  background-size: 60px 60px;
+}
+
+.aeicon {
+  background-image: url("images/AppIcons/ae.jpg");
+  background-size: 60px 60px;
+}
+
+.c4dicon {
+  background-image: url("images/AppIcons/c4d.jpg");
+  background-size: 60px 60px;
+}
+
+.lricon {
+  background-image: url("images/AppIcons/lr.jpg");
+  background-size: 60px 60px;
+}
+
+.githubicon {
+  background-image: url("images/AppIcons/github.jpg");
+  background-size: 60px 60px;
 }
 
 .about-container {
@@ -296,11 +494,98 @@ a {
   width: 50%;
 }
 
+.projects {
+  display: flex;
+  margin-top: 1em;
+}
+
+.project-img {
+  width: 400px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.project-name {
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.project-desc {
+  width: 400px;
+  font-size: 12px;
+  line-height: 1.7em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.scroll-container {
+  margin-right: 1.5em;
+}
+
+.project {
+  min-width: 400px;
+  margin-right: 1em;
+  /* background-color: #0fabdc; */
+}
+
+.contact-section {
+  text-align: center;
+  margin: 3em;
+  margin-top: 7em;
+
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.contact-section h2 {
+  font-size: 15px;
+  color: rgb(77, 77, 77);
+  margin-top: -10px;
+}
+
+.contact-section h2 strong {
+  color: rgb(13, 138, 211);
+}
+
+.contact-section h1 {
+  font-size: 42px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.footer {
+  height: 80px;
+  background-color: rgb(3, 3, 3);
+}
+
+.footer h2 {
+  margin: 0;
+  font-size: 14px;
+  padding-top: 2em;
+  text-align: center;
+  color: rgb(41, 41, 41);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 1000px) {
+  .home-heading h1 .typewrite {
+    font-size: 40px;
+  }
+
+  .home-heading {
+    padding-left: 3em;
+  }
+
   .aboutSection {
     padding-top: 5em;
   }
 
+  .aboutSection P {
+    line-height: 2em;
+  }
   .about-container {
     flex-direction: column;
   }
@@ -326,10 +611,28 @@ a {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
+  .nav-bar a {
+    display: none;
+  }
+
+  .nav-socials {
+    display: none;
+  }
+
+  .nav-bars {
+    float: right;
+    margin-right: 2em;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 22px;
+    padding-top: 1px;
+  }
+
   .skills-section {
     padding-left: 2em;
     padding-right: 0.8em;
+    padding-bottom: 3em;
   }
 
   .home-heading h1 .typewrite {
@@ -340,7 +643,7 @@ a {
     margin-top: -10px;
     margin-right: 3.5em;
     font-size: 14px;
-    line-height: 1.8em;
+    line-height: 2.2em;
   }
 }
 
@@ -349,57 +652,52 @@ a {
     padding-left: 2em;
     padding-right: 1.5em;
   }
-}
 
-@media only screen and (min-width: 500px) {
-  .sticky-footer {
-    z-index: 1;
-    position: fixed;
-    display: flex;
-    left: 0;
-    bottom: 0;
-    width: 50%;
-    color: white;
-    mix-blend-mode: exclusion;
-    padding-bottom: 2em;
+  .work-section {
+    margin-left: 3em;
   }
 
-  .sticky-footer h2 {
-    padding-left: 4em;
-    display: inline-block;
-    font-size: 13px;
+  .work-section p {
+    margin-right: 2em;
+    margin-bottom: 3em;
+  }
+
+  .project-img {
+    width: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  .project-name {
+    font-size: 20px;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
   }
 
-  .sticky-footer .footer1 div {
-    top: 0px;
+  .project-desc {
+    width: 300px;
+    font-size: 12px;
+    line-height: 1.7em;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    margin-bottom: 2em;
   }
 
-  .sticky-footer .footer2 div {
-    width: 150px;
-  }
-
-  .sticky-footer .footer3 div {
-    width: 150px;
+  .project {
+    min-width: 300px;
+    margin-right: 1em;
+    /* background-color: #0fabdc; */
   }
 }
 
+@media only screen and (max-width: 500px) {
+}
+
 @media only screen and (max-width: 680px) {
+  .work-section {
+    margin-right: 1em;
+  }
   .sticky-footer {
     display: none;
-  }
-  .nav-bar a {
-    display: none;
-  }
-
-  .nav-bars {
-    float: right;
-
-    padding-right: 1.4em;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 27px;
-    padding-top: 0px;
   }
 }
