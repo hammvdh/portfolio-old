@@ -30,6 +30,13 @@ html {
   scroll-behavior: smooth;
 }
 
+#loader-wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 1;
+}
+
 .nav-bar {
   z-index: 1;
   width: 100%;
@@ -42,14 +49,17 @@ html {
 }
 
 .nav-links {
-  text-align: center;
+  /* text-align: center; */
+  position: absolute;
+  left: 50%;
+  margin-top: 0.8em;
+  transform: translate(-50%, -50%);
 }
 
 .nav-links a {
   display: inline-block;
   margin: 2em;
   margin-top: 0;
-
   margin-bottom: 0;
   color: white;
   text-decoration: none;
@@ -71,11 +81,28 @@ html {
   margin-left: 1em;
 }
 
-.page1,
 .page3 {
   padding-top: 1em;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("images/black_bg.jpg");
+  background-color: #161616;
+}
+
+.page1 {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("images/black_bg.jpg");
+  background-color: #161616;
+}
+
+.page5 {
+  padding-top: 1em;
   min-height: 100vh;
   width: 100vw;
   background-image: url("images/black_bg.jpg");
@@ -111,11 +138,12 @@ a {
   padding-top: 8em;
   padding-left: 3em;
   padding-right: 2.8em;
+  margin-bottom: 2em;
   height: 100px;
 }
 
-.home-heading h1 .typewrite {
-  margin-top: -0.4em;
+.home-heading h1 {
+  margin-top: 0.5em;
   font-size: 65px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -133,6 +161,7 @@ a {
   width: 100%;
   color: white;
   font-size: 1.8em;
+  z-index: 2;
 }
 
 .iconRight {
@@ -160,10 +189,12 @@ a {
 
 .work-section {
   margin-top: 6em;
+  margin-bottom: 4em;
   margin-left: 3em;
   margin-right: 3em;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+  position: relative;
 }
 
 .work-section p {
@@ -173,6 +204,26 @@ a {
   margin-top: -10px;
   margin-bottom: 1em;
   color: rgb(100, 100, 100);
+}
+
+.work-section h1 {
+  text-align: center;
+}
+
+.work-section #work-para {
+  position: relative;
+  margin: 10em;
+  text-align: center;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+.work-section .swipe-text {
+  padding-top: 1em;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(0, 108, 250);
 }
 
 .emailBtn {
@@ -228,7 +279,8 @@ a {
 }
 
 .aboutSection {
-  padding-top: 9em;
+  margin-top: 7em;
+  margin-bottom: 4em;
   padding-left: 3em;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
@@ -260,6 +312,8 @@ a {
   margin-top: 9.5em;
   position: absolute;
   left: 25%;
+
+  border-radius: 13px;
 }
 
 .cv {
@@ -485,6 +539,10 @@ a {
   display: flex;
   flex-direction: row;
 }
+.contact-container {
+  display: flex;
+  flex-direction: row;
+}
 
 .column1 {
   width: 50%;
@@ -503,6 +561,7 @@ a {
   width: 400px;
   border-radius: 15px;
   object-fit: cover;
+  z-index: 1;
 }
 
 .project-name {
@@ -530,10 +589,12 @@ a {
 }
 
 .contact-section {
-  text-align: center;
-  margin: 3em;
-  margin-top: 7em;
-
+  position: relative;
+  text-align: left;
+  width: 50%;
+  margin-left: 8em;
+  line-height: 2em;
+  margin-top: 9em;
   color: white;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -546,32 +607,173 @@ a {
 }
 
 .contact-section h2 strong {
-  color: rgb(13, 138, 211);
+  line-height: 4em;
+  color: rgb(15, 155, 236);
 }
 
 .contact-section h1 {
   font-size: 42px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+
+  line-height: 1.2em;
+}
+
+.contact-section .contact-socials {
+  margin-top: 2em;
+  font-size: 18px;
+  margin-bottom: 1.4em;
+}
+
+.contact-icons {
+  margin-top: 2em;
+  margin-left: -1.2em;
+}
+
+.form-section {
+  z-index: 1;
+  position: relative;
+  text-align: left;
+  margin-left: 3em;
+  line-height: 2em;
+  margin-top: 10em;
+  display: inline-block;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute; */
+  /* left: 15%; */
+}
+
+.form-btn {
+  padding: 1em 1.9em;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-left: 1em;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  /* position: relative;
+  left: 25%; */
+  border: 10px;
+  display: block;
+  color: rgb(255, 255, 255);
+  background-color: rgb(136, 172, 9);
+}
+
+.form-input {
+  width: 75%;
+  display: inline-block;
+  border: none;
+  background-color: #1f1f1f;
+  padding: 1rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.form-input:active,
+.form-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #000;
+  background-color: #131313;
+}
+
+textarea {
+  overflow: auto;
+  resize: inherit;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  flex-direction: column;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  column-count: initial !important;
+  border-style: solid;
+  border-color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: white;
 }
 
 .footer {
   height: 80px;
-  background-color: rgb(3, 3, 3);
+  background-color: rgb(0, 0, 0);
+  position: relative;
 }
 
 .footer h2 {
   margin: 0;
   font-size: 14px;
-  padding-top: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  color: rgb(41, 41, 41);
+  color: rgb(80, 80, 80);
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
 
-@media screen and (max-width: 1000px) {
-  .home-heading h1 .typewrite {
+@media screen and (min-width: 1050px) {
+  .nav-bars {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .form-section {
+    margin-bottom: 7em;
+  }
+
+  .nav-bar a {
+    display: none;
+  }
+
+  .nav-socials {
+    display: none;
+  }
+
+  .nav-bars {
+    display: inline-flex;
+    color: white;
+  }
+
+  .nav-bars {
+    float: right;
+    margin-right: 2em;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 22px;
+    padding-top: 1px;
+    background: transparent;
+  }
+
+  .work-section #work-para {
+    position: relative;
+    margin: 5em;
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+
+  .home-heading h1 {
     font-size: 40px;
   }
 
@@ -588,6 +790,32 @@ a {
   }
   .about-container {
     flex-direction: column;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    margin-right: 2em;
+    display: flex;
+    padding-right: 3em;
+  }
+
+  .form-section {
+    margin-top: 4em;
+  }
+
+  .contact-section h2 {
+    font-size: 15px;
+    line-height: 1.6em;
+    padding-bottom: 0.2em;
+    margin-right: 3em;
+  }
+
+  .form-input {
+    width: 90%;
+  }
+
+  .contact-section {
+    margin-left: 4em;
   }
 
   .column1 {
@@ -612,30 +840,13 @@ a {
 }
 
 @media screen and (max-width: 900px) {
-  .nav-bar a {
-    display: none;
-  }
-
-  .nav-socials {
-    display: none;
-  }
-
-  .nav-bars {
-    float: right;
-    margin-right: 2em;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 22px;
-    padding-top: 1px;
-  }
-
   .skills-section {
     padding-left: 2em;
-    padding-right: 0.8em;
+    padding-right: 2em;
     padding-bottom: 3em;
   }
 
-  .home-heading h1 .typewrite {
+  .home-heading h1 {
     font-size: 35px;
   }
 
@@ -648,17 +859,45 @@ a {
 }
 
 @media only screen and (max-width: 480px) {
+  .contact-section {
+    margin-left: 3em;
+    padding-right: 3em;
+  }
+
+  .contact-container {
+    padding: 1em;
+  }
+
+  .form-section {
+    margin-left: 1em;
+    /* margin-right: 1em; */
+  }
+
   .home-heading {
     padding-left: 2em;
     padding-right: 1.5em;
   }
 
+  .work-section #work-para {
+    position: relative;
+    margin: 2em;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    line-height: 2em;
+  }
+
   .work-section {
-    margin-left: 3em;
+    margin-left: 2em;
   }
 
   .work-section p {
     margin-right: 2em;
+    margin-bottom: 3em;
+  }
+
+  .work-section #work-para {
     margin-bottom: 3em;
   }
 
@@ -697,6 +936,17 @@ a {
   .work-section {
     margin-right: 1em;
   }
+
+  .work-section #work-para {
+    position: relative;
+    margin: 2em;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    line-height: 2em;
+  }
+
   .sticky-footer {
     display: none;
   }

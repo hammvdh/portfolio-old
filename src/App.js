@@ -2,6 +2,7 @@ import "./App.css";
 import Parallax from "react-rellax";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { Link } from "react-scroll";
+import emailjs, { send } from "emailjs-com";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,6 +12,48 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 library.add(fab, fas, far);
 
 function App() {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "gmail",
+        "elite-portemails",
+        e.target,
+        "user_cEiG0xHiWFQjhkFnjmctT"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  }
+
+  // state = {
+  //   sideDrawerOpen: false,
+  // };
+
+  // drawerToggleClickHandler = () => {
+  //   this.setState((prevState) => {
+  //     return { sideDrawerOpen: !prevState.sideDrawerOpen };
+  //   });
+  // };
+
+  // backdropClickHandler = () => {
+  //   this.setState({ sideDrawerOpen: false });
+  // };
+
+  // let backdrop;
+  // let sideDrawer;
+
+  // if (this.state.sideDrawerOpen) {
+  //   backdrop = <Backdrop click={this.backdropClickHandler} />;
+  //   sideDrawer = <SideDrawer />;
+  // }
   return (
     <div class="App">
       <div class="nav-bar">
@@ -102,9 +145,13 @@ function App() {
         </div>
 
         <div class="nav-bars">
-          <FontAwesomeIcon icon={["fas", "bars"]} className="socialIcon" />
+          <a>
+            <FontAwesomeIcon icon={["fas", "bars"]} className="socialIcon " />
+          </a>
         </div>
       </div>
+
+      {/* <SideDrawer show={this.state.sideDrawerOpen} /> */}
 
       <Link activeClass="active" to="home" smooth={true} duration={1}>
         <div class="iconRight">
@@ -114,7 +161,7 @@ function App() {
         </div>
       </Link>
 
-      <div id="home" class="section1 page1 active">
+      <div id="home" class="section1 page1">
         <div class="sticky-footer">
           <h2 class="footer1">
             <div>HAMMADH A.</div>
@@ -132,13 +179,14 @@ function App() {
           </Parallax>
           <Parallax speed={3}>
             <h1>
-              <a
+              Graphic Designer and Front-end Developer based in Sri lanka.
+              {/* <a
                 class="typewrite"
                 data-period="2000"
                 data-type='[ "Graphic Designer and Front-end Developer based in Sri lanka.", "Enhancing Brands Since 2016." ]'
               >
                 <span class="wrap"></span>
-              </a>
+              </a> */}
             </h1>
           </Parallax>
           <Parallax speed={3}>
@@ -218,7 +266,7 @@ function App() {
               past four years, I’ve been tirelessly working to perfect my
               skills. Though I’m very far away from actually amazing someone
               with my work, I take immense pride in showcasing it because of the
-              amount of work and time that goes into making every design.
+              amount of work and time that goes into making every project.
             </p>
             <Parallax speed={-0.1}>
               <a
@@ -417,12 +465,17 @@ function App() {
       <div id="work" class="page4">
         <div class="work-section">
           <h1>Recent Projects</h1>
-          <p>
+          <p id="work-para">
             The following showcases some of the recent projects that i have
             worked on, some design, some programming.. Most of the programming
             projects are available under my github profile so feel free to check
             them out :)
           </p>
+
+          <p class="swipe-text">
+            ( Swipe-left on the projects to view more... )
+          </p>
+
           <ScrollContainer className="scroll-container">
             {
               <div class="projects">
@@ -528,17 +581,154 @@ function App() {
           </ScrollContainer>
         </div>
       </div>
-      <div id="contact" class="page1">
-        <div class="contact-section">
-          <h1>Stay in touch!</h1>
-          <h2>
-            Looking to get some work done? Interested in purchasing my services?
-            <strong> Feel free to send me a message.</strong>
-          </h2>
+
+      <div id="contact" class="page5">
+        <div class="contact-container">
+          <div class="contact-section column1">
+            <h1>Let's Connect!</h1>
+            <h2>
+              Looking to get some work done? Interested in purchasing my
+              services or working together on a project?
+              <br></br>
+              <strong> Feel free to send me a message.</strong>
+            </h2>
+
+            <h1 class="contact-socials">Stay Connected</h1>
+            <h2>
+              Check out and follow me on all my different social medias to stay
+              up to date with my latest work.
+            </h2>
+            <div class="contact-icons">
+              <a
+                href="https://twitter.com/elitepsd"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "twitter"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://instagram.com/hammvdh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "instagram"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://dribbble.com/hammvdh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "dribbble"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/hammadharquil/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "linkedin"]}
+                  className="socialIcon"
+                />
+              </a>
+              <a
+                href="https://behance.com/hammadh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "behance"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://github.com/hammvdh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "github"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://twitch.tv/hammvdh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "twitch"]}
+                  className="socialIcon"
+                />
+              </a>
+
+              <a
+                href="https://youtube.com/ElitePSD"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "youtube"]}
+                  className="socialIcon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="form-section column2">
+            <form onSubmit={sendEmail}>
+              <input
+                type="text"
+                class="form-input"
+                name="name"
+                id="name"
+                placeholder="Your Name"
+              ></input>
+              <input
+                type="text"
+                class="form-input"
+                name="email"
+                id="email"
+                placeholder="Email"
+              ></input>
+              <input
+                type="text"
+                class="form-input"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
+              ></input>
+              <textarea
+                class="form-input"
+                name="message"
+                id="message"
+                cols="30"
+                rows="7"
+                placeholder="Write your message"
+              ></textarea>
+              <input
+                type="submit"
+                value="Send Message"
+                class="form-btn"
+              ></input>
+            </form>
+          </div>
         </div>
       </div>
       <div class="footer">
-        <h2> &#169; Copyright - Hammadh Arquil 2021.</h2>
+        <h2> &#169; Copyright - Hammadh Arquil, 2021</h2>
       </div>
     </div>
   );
